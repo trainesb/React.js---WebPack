@@ -42,27 +42,29 @@ npm i -D webpack webpack-cli webpack-dev-server html-webpack-plugin
 Create ```webpack.config.js``` and add:
 ```
 const path = require('path');
-const html-webpack-plugin = require('html-webpack-plugin');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: path.join(__dirname, '/javascript/index.js'),
-  output: {
-    filename: 'main.js',
-    path: path.join(__dirname, '/dist')
-  },
-  module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader'
-    ]}
-  },
-  plugins: [
-    new html-webpack-plugin ({
-      template: path.join(__dirname, '/html/index.html')
-    }
-  ]
-}
+    context: __dirname,
+    entry: path.join(__dirname, '/javascript/index.js'),
+    output: {
+        filename: 'main.js',
+        path: path.resolve(__dirname, '/dist')
+    },
+    module: {
+        rules: [{
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader',
+        }]
+    },
+    plugins: [
+        new HtmlWebPackPlugin ({
+            template: path.join(__dirname, '/html/index.html'),
+            filename: "./index.html"
+        })
+    ]
+};
 ```
 
 
