@@ -51,22 +51,26 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     context: __dirname,
-    entry: path.join(__dirname, '/javascript/index.js'),
+    entry: path.join(__dirname, './src/javascript/index.js'),
     output: {
         filename: 'main.js',
-        path: path.resolve(__dirname, '/dist')
+        path: path.resolve(__dirname, 'dist')
     },
     module: {
-        rules: [{
-            test: /\.js$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader',
-        }]
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader"
+                }
+            }
+        ]
     },
     plugins: [
         new HtmlWebPackPlugin ({
-            template: path.join(__dirname, '/html/index.html'),
-            filename: "./index.html"
+            template: './src/html/index.html',
+            filename: "./index.html",
         })
     ]
 };
@@ -105,32 +109,71 @@ module.exports = {
 ```
 
 
-## /html/index.html
+## /src/html/index.html
 ```
 <!DOCTYPE html>
-<html lang=”en”>
+<html lang="en">
 <head>
- <meta charset=”UTF-8">
-     <meta name=”viewport” content=”width=device-width, initial-scale=1.0">
-     <meta http-equiv=”X-UA-Compatible” content=”ie=edge”>
-     <title>React app</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React app</title>
 </head>
 <body>
-      <div id=”root”></div>
+<div id="root"></div>
 </body>
 </html>
 ```
 
-## /javascript/index.js
+## /src/javascript/components/container/Hello.jsx
+```
+import React, {Component} from 'react';
+
+class Hello extends Component {
+    render() {
+        return (
+            <div>
+                <h1>Hello World!</h1>
+            </div>
+        );
+    }
+}
+
+export default Hello;
+```
+
+## /src/javascript/App.js
+```
+import React, {Component} from "react";
+import Hello from "./components/container/Hello.jsx";
+
+class App extends Component {
+
+    render() {
+        return(<Hello />
+        );
+    }
+}
+
+export default App;
+```
+
+## /src/javascript/index.js
 ```
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const App = () => (
-  <div>
-    <h1>Hello World!</h1>
-  </div>
-)
+import App from "./App";
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+function run() {
+    ReactDOM.render(<App/>, document.getElementById('root'));
+}
+
+const loadedStates = ['complete', 'loaded', 'interactive'];
+
+if (loadedStates.includes(document.readyState) && document.body) {
+    run();
+} else {
+    window.addEventListener('DOMContentLoaded', run, false);
+}
 ```
