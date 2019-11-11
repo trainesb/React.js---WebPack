@@ -43,6 +43,7 @@ Create ```webpack.config.js``` and add:
 ```
 const path = require('path');
 const html-webpack-plugin = require('html-webpack-plugin');
+
 module.exports = {
   entry: path.join(__dirname, '/javascript/index.js'),
   output: {
@@ -73,24 +74,56 @@ module.exports = {
  “description”: “”,
  “main”: “index.js”,
  “scripts”: {
- “start”: “”,
- “build”: “”
+    "start": "webpack-dev-server --open --mode=development --hot",
+    "dev": "webpack --mode=development --config webpack.config.js",
+    "prod": "webpack --mode=production --config webpack.config.js"
  },
  “author”: “”,
  “license”: “ISC”,
  “dependencies”: {
-     **“react”: “¹⁶.4.1”,**
-     “react-dom”: “¹⁶.4.1”
+   **“react”: “¹⁶.4.1”,**
+   “react-dom”: “¹⁶.4.1”
  },
  “devDependencies”: {
-     “babel-core”: “^7.6.4”,
-     “babel-loader”: “^8.0.6”,
-     “babel-preset-env”: “^7.6.3”,
-     “babel-preset-react”: “^7.6.3”,
-     “html-webpack-plugin”: “³.2.0”,
-     “webpack”: “⁴.41.2”,
-     “webpack-cli”: “³.3.9”,
-     “webpack-dev-server”: “³.9.0”
+   “babel-core”: “^7.6.4”,
+   “babel-loader”: “^8.0.6”,
+   “babel-preset-env”: “^7.6.3”,
+   “babel-preset-react”: “^7.6.3”,
+   “html-webpack-plugin”: “³.2.0”,
+   “webpack”: “⁴.41.2”,
+   “webpack-cli”: “³.3.9”,
+   “webpack-dev-server”: “³.9.0”
  }
 }
+```
+
+
+## /html/index.html
+```
+<!DOCTYPE html>
+<html lang=”en”>
+<head>
+ <meta charset=”UTF-8">
+     <meta name=”viewport” content=”width=device-width, initial-scale=1.0">
+     <meta http-equiv=”X-UA-Compatible” content=”ie=edge”>
+     <title>React app</title>
+</head>
+<body>
+      <div id=”root”></div>
+</body>
+</html>
+```
+
+## /javascript/index.js
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const App = () => (
+  <div>
+    <h1>Hello World!</h1>
+  </div>
+)
+
+ReactDOM.render(<App/>, document.getElementById('root'));
 ```
