@@ -20,7 +20,15 @@ Babel is used to convert ES5 & ES6 code, so that it's backwards compatibale with
 npm i -D babel-core babel-loader babel-preset-env babel-preset-react
 ```
 
+### Configure Babel
+Create ```.babelrc``` and add:
+```
+{"presets":["env", "react"]}
+```
+
+
 ## Webpack
+
 ### Packages
 1. ***webpack:*** The main engine
 2. ***webpack-cli:*** Adds the ability to access some webpack commands like starting the dev server, creating a development/production build, etc...
@@ -30,7 +38,34 @@ npm i -D babel-core babel-loader babel-preset-env babel-preset-react
 npm i -D webpack webpack-cli webpack-dev-server html-webpack-plugin
 ```
 
+### Configure Webpack
+Create ```webpack.config.js``` and add:
+```
+const path = require('path');
+const html-webpack-plugin = require('html-webpack-plugin');
+module.exports = {
+  entry: path.join(__dirname, '/javascript/index.js'),
+  output: {
+    filename: 'main.js',
+    path: path.join(__dirname, '/dist')
+  },
+  module: {
+    rules: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader'
+    ]}
+  },
+  plugins: [
+    new html-webpack-plugin ({
+      template: path.join(__dirname, '/html/index.html')
+    }
+  ]
+}
+```
 
+
+### package.json
 ```
 {
  “name”: “client”,
