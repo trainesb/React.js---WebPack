@@ -92,10 +92,10 @@ module.exports = {
    “react-dom”: “¹⁶.4.1”
  },
  “devDependencies”: {
-   “babel-core”: “^7.6.4”,
+   “@babel/core”: “^7.6.4”,
    “babel-loader”: “^8.0.6”,
-   “babel-preset-env”: “^7.6.3”,
-   “babel-preset-react”: “^7.6.3”,
+   “@babel/preset-env”: “^7.6.3”,
+   “@babel/preset-react”: “^7.6.3”,
    “html-webpack-plugin”: “³.2.0”,
    “webpack”: “⁴.41.2”,
    “webpack-cli”: “³.3.9”,
