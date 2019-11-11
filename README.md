@@ -12,19 +12,22 @@ Add ```react-native``` if we are building a mobile app.
 Babel is used to convert ES5 & ES6 code, so that it's backwards compatibale with older browsers.
 
 ### Packages
-1. ***babel-core:*** The main engine of babel
-2. ***babel-preset-env:*** Support for ES5 and ES6
-3. ***babel-preset-react:*** Support to use babel with react
+1. ***@babel/core:*** The main engine of babel
+2. ***@babel/preset-env:*** Support for ES5 and ES6
+3. ***@babel/preset-react:*** Support to use babel with react
 4. ***babel-loader:*** The communication link between Webpack and Babel
 ```C
-npm i -D babel-core babel-loader babel-preset-env babel-preset-react
+npm i -D @babel/core babel-loader @babel/preset-env @babel/preset-react
 ```
 
 ### Configure Babel
 Create ```.babelrc``` and add:
 ```
 {
-  "presets":["env", "react"]
+  "presets":[
+    "@babel/preset-env", 
+    "@babel/preset-react",
+  ]
 }
 ```
 
