@@ -76,7 +76,7 @@ module.exports = {
  “name”: “client”,
  “version”: “1.0.0”,
  “description”: “”,
- “main”: “index.js”,
+ “main”: “/javascript/index.js”,
  “scripts”: {
     "start": "webpack-dev-server --open --mode=development --hot",
     "dev": "webpack --mode=development --config webpack.config.js",
