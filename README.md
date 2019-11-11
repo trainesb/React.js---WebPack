@@ -23,7 +23,9 @@ npm i -D babel-core babel-loader babel-preset-env babel-preset-react
 ### Configure Babel
 Create ```.babelrc``` and add:
 ```
-{"presets":["env", "react"]}
+{
+  "presets":["env", "react"]
+}
 ```
 
 
