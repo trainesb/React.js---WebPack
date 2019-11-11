@@ -31,7 +31,7 @@ npm i -D webpack webpack-cli webpack-dev-server html-webpack-plugin
 ```
 
 
-```JSON
+```
 {
  “name”: “client”,
  “version”: “1.0.0”,
@@ -41,21 +41,21 @@ npm i -D webpack webpack-cli webpack-dev-server html-webpack-plugin
  “start”: “”,
  “build”: “”
  },
- “author”: “Austin4Silvers”,
+ “author”: “”,
  “license”: “ISC”,
  “dependencies”: {
-     “react”: “¹⁶.4.1”,
+     **“react”: “¹⁶.4.1”,**
      “react-dom”: “¹⁶.4.1”
  },
  “devDependencies”: {
-     “babel-core”: “⁶.26.3”,
-     “babel-loader”: “⁷.1.5”,
-     “babel-preset-env”: “¹.7.0”,
-     “babel-preset-react”: “⁶.24.1”,
+     “babel-core”: “^7.6.4”,
+     “babel-loader”: “^8.0.6”,
+     “babel-preset-env”: “^7.6.3”,
+     “babel-preset-react”: “^7.6.3”,
      “html-webpack-plugin”: “³.2.0”,
-     “webpack”: “⁴.16.2”,
-     “webpack-cli”: “³.1.0”,
-     “webpack-dev-server”: “³.1.5”
+     “webpack”: “⁴.41.2”,
+     “webpack-cli”: “³.3.9”,
+     “webpack-dev-server”: “³.9.0”
  }
 }
 ```
